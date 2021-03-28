@@ -1302,7 +1302,7 @@ label U6secret:
 
     menu:
 
-        "Tell him off":
+        "Tell him off [IrenePath]":
             $ ipts = ipts + 1
             scene f102
             with dissolve
@@ -1333,7 +1333,7 @@ label U6secret:
 
             jump U6kiss
 
-        "Kiss Irene [IrenePath]":
+        "Kiss Irene":
             $ Ikiss = True
 
             P "*smile* Well, I do admit I'm young, but there's not much I can do about that."
