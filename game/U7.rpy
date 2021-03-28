@@ -236,10 +236,7 @@ label U7:
 
         menu:
 
-            "[gr]Ask her to model [Mod makes sures you have enough points]":
-                if cpts < 3:
-                    $ cpts = 3
-
+            "[gr]Ask her to model [OscarSixModText1]":
                 if cpts >= 2:
 
                     "{color=#00ff00}You have enough points to see this option.{/color}"
@@ -2220,7 +2217,7 @@ label U7deal:
 
     menu:
 
-        "Convince her to go bareback [gr]\[Leanne raw\]":
+        "Convince her to go bareback [gr] [Leanne_raw]":
 
             if lpts >= 7:
 

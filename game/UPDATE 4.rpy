@@ -1872,7 +1872,7 @@ label CH4HIKE:
 
     menu:
 
-        "I did peek on Zoe [gr]\[Zoe Peek\]":
+        "I did peek on Zoe [ZoePeek]":
 
             $ Zpeek = True
 

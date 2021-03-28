@@ -34,12 +34,11 @@ default op2 = False
 default op3 = False
 default op4 = False
 default op5 = False
-define Cbf = False
-define Cpanties = False
-define Cbf = False
-define Zeek = False
-define Imf = False
-define Ikiss = False
+default Cpanties = False
+default Cbf = False
+default Zeek = False
+default Imf = False
+default Ikiss = False
 
 
 
@@ -59,6 +58,7 @@ label start:
     define zroute = False
     define nporn = False
     define zsecret = False
+    define Lraw = False
 
     "Before you play Secret Summer, you have to define some relationships. I know it's annoying, but better to get it out of the way now so that you can focus on the game."
     scene bg
