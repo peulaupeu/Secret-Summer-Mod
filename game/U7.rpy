@@ -621,7 +621,7 @@ label U7pic:
 
                 jump U7buffet
 
-            "[gr]Move your hand":
+            "Move your hand [CoralPath]":
 
                 $ cpts = cpts + 1
 
@@ -917,7 +917,7 @@ label U7buffet:
 
                 jump U7run
 
-            "[gr]Don't tease":
+            "Don't tease [CoralPath]":
 
                 P "Is the house on fire or something?"
 
@@ -1424,7 +1424,7 @@ menu:
 
         jump U7hug
 
-    "[gr]Ammend":
+    "Ammend [LeannePath]":
 
         $ lpts = lpts + 1
 
@@ -1833,7 +1833,7 @@ menu:
 
         jump U7bar
 
-    "[gr]Hennessy":
+    "Hennessy [LeannePath]":
 
         $ lpts = lpts + 1
 
@@ -2082,7 +2082,7 @@ menu:
         $renpy.end_replay()
         jump U8
 
-    "[gr]Kiss her":
+    "Kiss her [LeannePath]":
 
         $ lroute = True
 
@@ -2217,7 +2217,7 @@ label U7deal:
 
     menu:
 
-        "Convince her to go bareback [gr] [Leanne_raw]":
+        "Convince her to go bareback [Leanne_raw]":
 
             if lpts >= 7:
 

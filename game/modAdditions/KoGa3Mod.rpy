@@ -107,6 +107,25 @@ screen KoGa3ScreenStats():
 
 #---------------------set Mod menu---------------------#
 
+define rel_points = [
+  ["Norah", "npts"],
+  ["Coral", "cpts"],
+  ["Leanne", "lpts"],
+  ["Irene", "ipts"],
+  ["Zoe", "zpts"],
+]
+
+define choices = [
+  ["nshower", "EP2: \"nshower\" (Norah shower):"],
+  ["croute", "EP3: \"croute\" (Coral route):"],
+  ["Cpanties", "EP4: \"Cpanties\" (Coral panties):"],
+  ["Cbf", "EP4: \"Cbf\" (Coral boyfriend):"],
+  ["nroute", "EP5: \"nroute\" (Norah route):"],
+  ["zsecret", "EP5: \"zsecret\" (Zoe secret):"],
+  ["zroute", "EP5: \"zroute\" (Zoe route):"],
+  ["Imf", "EP6: \"Imf\" (Irene mother fig.):"],
+  ["Lraw", "EP7: \"Lraw\": (Leanne raw sex)"],
+]
 
 screen KoGa3ScreenModMenu:
     add "/modAdditions/images/KoGa3MenuBack.png"
@@ -127,171 +146,40 @@ screen KoGa3ScreenModMenu:
         text "---------------------------------------------------------------------------"
 
         if KoGa3CheatButton == 1:
+            for r in rel_points:
+                hbox:
+                    hbox:
+                        xsize 475
+                        textbutton "{color=#808080}"+ r[0] +" points:{/color}":
+                            text_style "KoGa3_button_text"
+                            selected True
+                            sensitive False
+                            action NullAction()
+                    hbox:
+                        xsize 122
+                        textbutton "{color=#ffffff}"+ str(eval(r[1])) +"{/color}":
+                            text_style "KoGa3_button_text"
+                            selected True
+                            sensitive False
+                            action NullAction()
+                    hbox:
+                        xsize 115
+                        textbutton _("+1"):
+                            text_style "KoGa3_button_text"
+                            action SetVariable(r[1], eval(r[1]) +1)
+                    hbox:
+                        xsize 115
+                        if eval(r[1]) >= 1:
+                            textbutton _("-1"):
+                                text_style "KoGa3_button_text"
+                                action SetVariable(r[1], eval(r[1]) -1)
+                    hbox:
+                        xsize 125
+                        if eval(r[1]) != eval(r[1] +"Temp"):
+                            textbutton ("Reset"):
+                                text_style "KoGa3_button_text"
+                                action SetVariable(r[1], eval(r[1] +"Temp"))
 
-            hbox:
-                hbox:
-                    xsize 475
-                    textbutton "{color=#808080}Norah points:{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 122
-                    textbutton "{color=#ffffff}[npts]{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 115
-                    textbutton _("+1"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("npts", npts +1)
-                hbox:
-                    xsize 115
-                    if npts >= 1:
-                        textbutton _("-1"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("npts", npts -1)
-                hbox:
-                    xsize 125
-                    if npts != nptsTemp:
-                        textbutton ("Reset"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("npts", nptsTemp)
-
-            hbox:
-                hbox:
-                    xsize 475
-                    textbutton "{color=#808080}Coral points:{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 122
-                    textbutton "{color=#ffffff}[cpts]{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 115
-                    textbutton _("+1"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("cpts", cpts +1)
-                hbox:
-                    xsize 115
-                    if cpts >= 1:
-                        textbutton _("-1"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("cpts", cpts -1)
-                hbox:
-                    xsize 125
-                    if cpts != cptsTemp:
-                        textbutton ("Reset"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("cpts", cptsTemp)
-
-            hbox:
-                hbox:
-                    xsize 475
-                    textbutton "{color=#808080}Leanne points:{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 122
-                    textbutton "{color=#ffffff}[lpts]{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 115
-                    textbutton _("+1"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("lpts", lpts +1)
-                hbox:
-                    xsize 115
-                    if lpts >= 1:
-                        textbutton _("-1"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("lpts", lpts -1)
-                hbox:
-                    xsize 125
-                    if lpts != lptsTemp:
-                        textbutton ("Reset"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("lpts", lptsTemp)
-
-            hbox:
-                hbox:
-                    xsize 475
-                    textbutton "{color=#808080}Irene points:{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 122
-                    textbutton "{color=#ffffff}[ipts]{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 115
-                    textbutton _("+1"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("ipts", ipts +1)
-                hbox:
-                    xsize 115
-                    if ipts >= 1:
-                        textbutton _("-1"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("ipts", ipts -1)
-                hbox:
-                    xsize 125
-                    if ipts != iptsTemp:
-                        textbutton ("Reset"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("ipts", iptsTemp)
-
-            hbox:
-                hbox:
-                    xsize 475
-                    textbutton "{color=#808080}Zoe points:{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 122
-                    textbutton "{color=#ffffff}[zpts]{/color}":
-                        text_style "KoGa3_button_text"
-                        selected True
-                        sensitive False
-                        action NullAction()
-                hbox:
-                    xsize 115
-                    textbutton _("+1"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("zpts", zpts +1)
-                hbox:
-                    xsize 115
-                    if zpts >= 1:
-                        textbutton _("-1"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("zpts", zpts -1)
-                hbox:
-                    xsize 125
-                    if zpts != zptsTemp:
-                        textbutton ("Reset"):
-                            text_style "KoGa3_button_text"
-                            action SetVariable("zpts", zptsTemp)
 
         text "---------------------------------------------------------------------------"
         if KoGa3ScreenStatsFull == 1:
@@ -407,198 +295,21 @@ screen KoGa3ScreenCheatMore1():
         #yalign 0.4
         text ""
         text "============= game choices ============="
-        hbox:
+        for c in choices:
             hbox:
-                xsize 650
-                textbutton ("EP2: \"nshower\" (Norah shower):"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if nshower is True:
+                hbox:
+                    xsize 650
+                    textbutton (c[1]):
+                        text_style "KoGa3_1_button_text"
+                        selected False
+                        sensitive False
+                        action NullAction()
                 hbox:
                     xsize 200
-                    textbutton ("True"):
+                    textbutton (str(eval(c[0]))):
                         text_style "KoGa3_button_text"
                         selected False
-                        action SetVariable("nshower", False)
-            if nshower is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        selected False
-                        action SetVariable("nshower", True)
-
-        hbox:
-            hbox:
-                xsize 650
-                textbutton ("EP3: \"croute\" (Coral route):"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if croute is True:
-                hbox:
-                    xsize 200
-                    textbutton ("True"):
-                        text_style "KoGa3_button_text"
-                        selected False
-                        action SetVariable("croute", False)
-            if croute is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        selected False
-                        action SetVariable("croute", True)
-
-        hbox:
-            hbox:
-                xsize 650
-                textbutton ("EP4: \"Cpanties\" (Coral panties):"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if Cpanties is True:
-                hbox:
-                    xsize 200
-                    textbutton ("True"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("Cpanties", False)
-            if Cpanties is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("Cpanties", True)
-
-        hbox:
-            hbox:
-                xsize 650
-                textbutton ("EP4: \"Cbf\" (Coral boyfriend):"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if Cbf is True:
-                hbox:
-                    xsize 200
-                    textbutton ("True"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("Cbf", False)
-            if Cbf is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("Cbf", True)
-
-        hbox:
-            hbox:
-                xsize 650
-                textbutton ("EP5: \"nroute\" (Norah route):"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if nroute is True:
-                hbox:
-                    xsize 200
-                    textbutton ("True"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("nroute", False)
-            if nroute is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("nroute", True)
-
-        hbox:
-            hbox:
-                xsize 650
-                textbutton ("EP5: \"zsecret\" (Zoe secret):"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if zsecret is True:
-                hbox:
-                    xsize 200
-                    textbutton ("True"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("zsecret", False)
-            if zsecret is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("zsecret", True)
-
-        hbox:
-            hbox:
-                xsize 650
-                textbutton ("EP5: \"zroute\" (Zoe route):"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if zroute is True:
-                hbox:
-                    xsize 200
-                    textbutton ("True"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("zroute", False)
-            if zroute is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("zroute", True)
-
-        hbox:
-            hbox:
-                xsize 650
-                textbutton ("EP6: \"Imf\" (Irene mother fig.):"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if Imf is True:
-                hbox:
-                    xsize 200
-                    textbutton ("True"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("Imf", False)
-            if Imf is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("Imf", True)
-
-        hbox:
-            hbox:
-                xsize 650
-                textbutton ("EP7: \"Lraw\": (Leanne raw sex)"):
-                    text_style "KoGa3_1_button_text"
-                    selected False
-                    sensitive False
-                    action NullAction()
-            if Lraw is True:
-                hbox:
-                    xsize 200
-                    textbutton ("True"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("Lraw", False)
-            if Lraw is False:
-                hbox:
-                    xsize 200
-                    textbutton ("False"):
-                        text_style "KoGa3_button_text"
-                        action SetVariable("Lraw", True)
+                        action ToggleVariable(c[0])
 
         text "==================================="
         hbox:
@@ -664,12 +375,17 @@ default KoGa3JukeboxButton = 1
 #default KoGa3HSound = 1   #variable human sounds               (haha, sigh, shh,...)
 #default KoGa3ESound = 1   #variable human erotic               (moaning and kissing)
 
-
 default p_name = "John"
 default rel_s = "roommate"
 default rel_b = "roommate"
 default rel_sm = "landlady"
 default rel_f = "landlord"
+
+default iptsTemp = 0
+default zptsTemp = 0
+default lptsTemp = 0
+default nptsTemp = 0
+default cptsTemp = 0
 
 
 #---------------------set variable name setting---------------------#
@@ -687,7 +403,7 @@ default KoGa3ChoiceView2 = KoGa3ChoiceTextOFF
 default KoGa3ChoiceView3 = KoGa3ChoiceTextOFF
 
 default ZoePeek = "{color=#0f0}[Zoe Peek]"
-default OscarSixModText1 = " [Mod makes sures you have enough points]"
+default OscarSixModText1 = " [Coral points >= 3 recommended]"
 default Leanne_raw = "{color=#0f0}[Leanne raw]"
 
 
